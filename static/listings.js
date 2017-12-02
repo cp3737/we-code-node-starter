@@ -67,49 +67,50 @@
 	var container = $(".listings");
 	container.html("");
     
-	for (var i=0; i<listings.length; i++){
-		var currentListing = listings[i];
-		var listItem = $("<li>");
-		// content
-		listItem.append($("<h3>").html(currentListing.doctype));
-		listItem.append("<h6>" + currentListing.date + "</h6>");
-		listItem.append("<p>$" + currentListing.data + "</p>");
-		
-		if (currentListing.sold === true) {
-			print("its sold already");
-			listItem.addClass("sold");
-		}
-		
-		
-		// delete button
-		//var delButton = $("<a class='del'>").attr("id", i).html("Delete");
-		//listItem.append(delButton);
-		//delButton.click(function(){
-		//	var buttonClicked = $(this);
-		//	var buttonID = buttonClicked.attr("id");
-		//	print("delete");
-		//	listings.splice(buttonID, 1);
-		//	window.del(buttonID);
-		//	refreshDOM();
-		//});
-		
-		
-		// listItem += "</li>";
-		
-		
-		$(".listings").append(listItem);
-	}
+//	for (var i=0; i<listings.length; i++){
+//		var currentListing = listings[i];
+//		var listItem = $("<li>");
+//		// content
+//		listItem.append($("<h3>").html(currentListing.doctype));
+//		listItem.append("<h6>" + currentListing.date + "</h6>");
+//		listItem.append("<p>$" + currentListing.data + "</p>");
+//		
+//		if (currentListing.sold === true) {
+//			print("its sold already");
+//			listItem.addClass("sold");
+//		}
+//		
+//		
+//		// delete button
+//		//var delButton = $("<a class='del'>").attr("id", i).html("Delete");
+//		//listItem.append(delButton);
+//		//delButton.click(function(){
+//		//	var buttonClicked = $(this);
+//		//	var buttonID = buttonClicked.attr("id");
+//		//	print("delete");
+//		//	listings.splice(buttonID, 1);
+//		//	window.del(buttonID);
+//		//	refreshDOM();
+//		//});
+//		
+//		
+//		// listItem += "</li>";
+//		
+//		
+//		$(".listings").append(listItem);
+//	}
   }  
   
   // Implement the get() function
   function get() {
     $.ajax({
       type: "get",
-      url: "/listings",
+      url: "/upload",
       success: function(data) {
         listings = data.listings;
         //console.log(listings);
         refreshDOM();
+	window.location.reload();
       }
     });
   }
